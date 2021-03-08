@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>country</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+
+    <mat-select>
+      <mat-option
+        *ngFor="let country of countries"
+        (click)="select.emit(Country);selectCountry(country);"
+        class="record"
+      >
+        <h3 >{{ country.name }}</h3>
+    
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  </mat-card-content>
+</mat-card>
+
+<table> 
+  <tr>
+    <th style="width:200px">Name</th>
+    <th>Capital</th>
+    <th>Population</th>
+    <th>Currencies</th>
+    <th>Flag</th>
+  </tr>
+  
+  <tr *ngIf="selectedCountry.name !== 'empty'">
+    <td style="width:200px">{{ selectedCountry.name }}</td>
+    <td>{{ selectedCountry.capital}}</td>
+    <td>{{ selectedCountry.population }}</td>
+    <td>{{ selectedCountry.currencies[0] | json }}</td>
+    <td><img src="{{selectedCountry.flag}}" width="50" height="50"/></td>
+  </tr>
+</table>

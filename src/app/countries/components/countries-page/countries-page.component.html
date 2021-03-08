@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="col-50">
+   <!-- <app-countries-total [total]="total$ | async"> </app-countries-total>
+-->
+    <app-countries-list
+      [countries]="countries$ | async"
+      (select)="onSelect($event)"
+      (delete)="onDelete($event)"
+    >
+    </app-countries-list>
+  </div>
+</div>
